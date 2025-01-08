@@ -1,0 +1,8 @@
+# Ignore node_modules
+node_modules/
+# Ignore AI chat logs
+ai_chatlogs/
+# Ignore OS files
+.DS_Store
+# Ignore log files
+*.log

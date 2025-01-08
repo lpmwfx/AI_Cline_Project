@@ -1,0 +1,49 @@
+# Project configuration for cline_init.py
+project:
+  name: "OpenAI Chat Application"
+  description: "Modern chat application powered by OpenAI GPT models"
+  version: "1.0.0"
+  
+components:
+  - name: "ChatInterface"
+    description: "User interface for chat functionality"
+    branch: "feature/chat-interface"
+    tasks:
+      - "message_system"
+      - "input_management"
+      
+  - name: "AIIntegration" 
+    description: "Integration with OpenAI API"
+    branch: "feature/ai-integration"
+    tasks:
+      - "api_integration"
+      - "context_management"
+      
+  - name: "UserManagement"
+    description: "User authentication and management"
+    branch: "feature/user-management"
+    tasks:
+      - "authentication"
+      - "profile_management"
+
+workflows:
+  main:
+    name: "Main Workflow"
+    description: "Orchestrates all sub-workflows"
+    sub_workflows:
+      - "workflow_ChatInterface.yaml"
+      - "workflow_AIIntegration.yaml"
+      - "workflow_UserManagement.yaml"
+      
+git:
+  branch_prefix: "feature/"
+  main_branch: "main"
+  ignore:
+    - "node_modules/"
+    - "ai_chatlogs/"
+    - ".DS_Store"
+    
+templates:
+  workspace: "templates/workspace.json"
+  task: "templates/task.yaml"
+  workflow: "templates/workflow.yaml"

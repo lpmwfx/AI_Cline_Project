@@ -1,0 +1,9 @@
+settings:
+  allowed_statuses:
+  - pending
+  - in_progress
+  - completed
+  - blocked
+  default_status: pending
+  max_tokens_per_task: 40000
+tasks: []
