@@ -1,0 +1,77 @@
+project:
+  name: OpenAI Chat Application
+  description: This project aims to develop a modern, user-friendly chat application
+    powered by OpenAI's GPT models. The application will provide users with an intuitive
+    interface to interact with AI, enabling natural conversations, task assistance,
+    and knowledge retrieval. The target audience includes professionals, students,
+    and general users seeking AI-powered conversation and assistance.
+  version: 1.0.0
+tasks:
+- id: TASK-1
+  name: Chat Interface Implementation
+  description: Implementation of Chat Interface
+  components:
+  - ChatInterface
+  sub_tasks:
+  - id: TASK-1.1
+    name: Sub-feature 1.1
+    description: Message System
+    estimated_tokens: 25000
+    dependencies: []
+    status: pending
+  - id: TASK-1.2
+    name: Sub-feature 1.2
+    description: Input Management
+    estimated_tokens: 25000
+    dependencies: []
+    status: pending
+- id: TASK-2
+  name: AI Integration Implementation
+  description: Implementation of AI Integration
+  components:
+  - AIIntegration
+  sub_tasks:
+  - id: TASK-2.1
+    name: Sub-feature 2.1
+    description: OpenAI API Integration
+    estimated_tokens: 25000
+    dependencies: []
+    status: pending
+  - id: TASK-2.2
+    name: Sub-feature 2.2
+    description: Context Management
+    estimated_tokens: 25000
+    dependencies: []
+    status: pending
+- id: TASK-3
+  name: User Management Implementation
+  description: Implementation of User Management
+  components:
+  - UserManagement
+  sub_tasks:
+  - id: TASK-3.1
+    name: Sub-feature 3.1
+    description: Authentication
+    estimated_tokens: 25000
+    dependencies: []
+    status: pending
+settings:
+  max_tokens_per_task: 40000
+  default_status: pending
+  allowed_statuses:
+  - pending
+  - in_progress
+  - completed
+  - blocked
+task_files:
+- path: src/libs/ChatInterface/task_ChatInterface.yaml
+  tasks:
+  - TASK-1.1
+  - TASK-1.2
+- path: src/libs/AIIntegration/task_AIIntegration.yaml
+  tasks:
+  - TASK-2.1
+  - TASK-2.2
+- path: src/libs/UserManagement/task_UserManagement.yaml
+  tasks:
+  - TASK-3.1

@@ -66,13 +66,13 @@ class ProjectConverter:
         """Parse features section into structured tasks."""
         tasks = []
         current_feature = None
-        feature_pattern = re.compile(r'### Feature \d+: \[([^\]]+)\]')
+        feature_pattern = re.compile(r'### Feature \d+: (.+)')
         
         for line in features_section.split('\n'):
             if match := feature_pattern.match(line):
                 if current_feature:
                     tasks.append(current_feature)
-                feature_name = match.group(1)
+                feature_name = match.group(1).strip()
                 current_feature = {
                     'id': f"TASK-{len(tasks) + 1}",
                     'name': f"{feature_name} Implementation",
@@ -82,14 +82,14 @@ class ProjectConverter:
                 }
             elif current_feature and line.strip().startswith('- Sub-feature'):
                 # Extract sub-feature details
-                sub_feature_match = re.match(r'\s*- Sub-feature (\d+\.\d+): \[([^\]]+)\]', line)
+                sub_feature_match = re.match(r'\s*- Sub-feature (\d+\.\d+): (.+)', line)
                 if sub_feature_match:
                     sub_id, sub_name = sub_feature_match.groups()
                     sub_task = {
                         'id': f"TASK-{sub_id}",
                         'name': f"Sub-feature {sub_id}",
-                        'description': sub_name,
-                        'estimated_tokens': 20000,  # Default estimation
+                        'description': sub_name.strip(),
+                        'estimated_tokens': 25000,  # Default estimation
                         'dependencies': [],
                         'status': 'pending'
                     }
